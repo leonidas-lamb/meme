@@ -9,8 +9,14 @@ MEME.MemeModel = Backbone.Model.extend({
     creditSize: 12,
     downloadName: 'share',
     fontColor: 'white',
-    fontFamily: 'Helvetica Neue',
-    fontFamilyOpts: ['Helvetica', 'Helvetica Neue', 'Comic Sans MS'],
+    fontFamily: 'Belizio Narrow SemiBold',
+    fontFamilyOpts: [
+        'Belizio Narrow SemiBold',
+        'Belizio Narrow Bold',
+        'LA Web Display Kis Bold',
+        'Arial',
+        'Georgia'
+    ],
     fontSize: 24,
     fontSizeOpts: [14, 24, 36],
     headlineText: 'Write your own headline',
