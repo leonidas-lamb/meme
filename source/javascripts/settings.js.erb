@@ -18,7 +18,7 @@ var MEME_SETTINGS = {
   ],
 
   // Font size of main headline:
-  fontSize: 24,
+  fontSize: 36,
   // Font size options: set to empty array to disable font-size selector.
   fontSizeOpts: [
     {text: 'Small text', value: 14},
@@ -27,14 +27,13 @@ var MEME_SETTINGS = {
   ],
 
   headlineText: 'Write your own headline', // Default headline text.
-  height: 440, // Canvas rendering height.
+  height: 480, // Canvas rendering height.
   width: 880, // Canvas rendering width.
 
   aspectRatioOpts:[
-    {text: 'twitter [860x460]', value: "880x440"},
+    {text: 'twitter [880x480]', value: "880x480"},
     {text: 'facebook [1200x672]', value: "1200x672"},
-    {text: 'instagram [640x640]', value: "640x640"},
-    {text: 'google [497x373]', value: "497x373"}
+    {text: 'instagram [600x600]', value: "600x600"},
   ],
 
   imageScale: 1, // Background image scale.
@@ -59,7 +58,7 @@ var MEME_SETTINGS = {
   textShadow: false, // Text shadow toggle.
   textShadowEdit: true, // Toggles text shadow control within the editor.
   watermarkAlpha: 1, // Opacity of watermark image.
-  watermarkMaxWidthRatio: 0.25, // Maximum allowed width of watermark (percentage of total canvas width).
+  watermarkMaxWidthRatio: 0.20, // Maximum allowed width of watermark (percentage of total canvas width).
 
   // Path to the watermark image source, or blank for no watermark:
   // Alternatively, use '<%= asset_data_uri("vox.png") %>' to populate the watermark with base64 data, avoiding Cross-Origin issues.

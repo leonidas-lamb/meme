@@ -93,7 +93,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       if (d.textAlign == 'center') {
         ctx.textAlign = 'center';
         x = d.width / 2;
-        y = d.height - d.height / 1.5;
+        y = d.height - d.height / 1.75;
         maxWidth = d.width - d.width / 3;
 
       } else if (d.textAlign == 'right' ) {
@@ -129,7 +129,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       ctx.textBaseline = 'bottom';
       ctx.textAlign = 'left';
       ctx.fillStyle = d.fontColor;
-      ctx.font = 'normal '+ d.creditSize +'pt '+ d.fontFamily;
+      ctx.font = 'normal '+ 14 +'pt '+ d.fontFamily;
       ctx.fillText(d.creditText, padding, d.height - padding);
     }
 
