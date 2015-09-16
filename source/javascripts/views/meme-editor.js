@@ -29,6 +29,11 @@ MEME.MemeEditorView = Backbone.View.extend({
       $('#text-align').append(buildOptions(d.textAlignOpts)).show();
     }
 
+    // Share image aspect ratio options
+    if (d.aspectRatioOpts && d.aspectRatioOpts.length) {
+      $('#aspect-ratio').append(buildOptions(d.aspectRatioOpts)).show();
+    }
+
     // Build font size options:
     if (d.fontSizeOpts && d.fontSizeOpts.length) {
       $('#font-size').append(buildOptions(d.fontSizeOpts)).show();
@@ -64,6 +69,7 @@ MEME.MemeEditorView = Backbone.View.extend({
     this.$('#font-size').val(d.fontSize);
     this.$('#font-family').val(d.fontFamily);
     this.$('#text-align').val(d.textAlign);
+    this.$('#aspect-ratio').val(d.width + "x" + d.height);
     this.$('#text-shadow').prop('checked', d.textShadow);
     this.$('#overlay').find('[value="'+d.overlayColor+'"]').prop('checked', true);
   },
@@ -76,6 +82,7 @@ MEME.MemeEditorView = Backbone.View.extend({
     'change #font-family': 'onFontFamily',
     'change #watermark': 'onWatermark',
     'change #text-align': 'onTextAlign',
+    'change #aspect-ratio': 'onAspectRatio',
     'change #text-shadow': 'onTextShadow',
     'change [name="overlay"]': 'onOverlayColor',
     'dragover #dropzone': 'onZoneOver',
@@ -93,6 +100,13 @@ MEME.MemeEditorView = Backbone.View.extend({
 
   onTextAlign: function() {
     this.model.set('textAlign', this.$('#text-align').val());
+  },
+
+  onAspectRatio: function() {
+    this.model.set({
+      'width': parseInt(this.$('#aspect-ratio').val().split("x")[0]),
+      'height': parseInt(this.$('#aspect-ratio').val().split("x")[1])
+      });
   },
 
   onTextShadow: function() {
