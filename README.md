@@ -25,7 +25,7 @@ $ make serve
 
 **Build the source files into a working static site**
 
-Build your changes into static files like so:
+Like so:
 
 ```bash
 $ make build
