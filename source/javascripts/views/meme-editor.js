@@ -123,7 +123,6 @@ MEME.MemeEditorView = Backbone.View.extend({
 
   onWatermark: function() {
     this.model.set('watermarkSrc', this.$('#watermark').val());
-    if (localStorage) localStorage.setItem('meme_watermark', this.$('#watermark').val());
   },
 
   onScale: function() {
