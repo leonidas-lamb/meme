@@ -23,6 +23,7 @@ MEME.waitForFonts = function(callback) {
     el.style.left = el.style.top = '-10000px';
     el.style.fontSize = '300px';
     el.style.fontFamily = 'Belizio Narrow SemiBold';
+    el.style.fontColor = '#fff';
     el.style.fontVariant = 'normal';
     el.style.fontStyle = 'normal';
     el.style.fontWeight = 'normal';

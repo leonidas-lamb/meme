@@ -8,7 +8,7 @@ MEME.MemeModel = Backbone.Model.extend({
     creditText: 'Source:',
     creditSize: 12,
     downloadName: 'share',
-    fontColor: 'white',
+    fontColor: '#fff',
     fontFamily: 'Belizio Narrow SemiBold',
     fontFamilyOpts: [
         'Belizio Narrow SemiBold',
@@ -19,6 +19,7 @@ MEME.MemeModel = Backbone.Model.extend({
     ],
     fontSize: 24,
     fontSizeOpts: [14, 24, 36],
+    fontColorOpts: ['#fff', '#000'],
     headlineText: 'Write your own headline',
     height: 378,
     width: 755,

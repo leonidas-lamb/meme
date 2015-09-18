@@ -2,7 +2,6 @@ var MEME_SETTINGS = {
   creditText: 'Source:', // Default "credits" text.
   creditSize: 12, // Font size for credit text.
   downloadName: 'meme', // The name of the downloaded image file (will have a ".png" extension added).
-  fontColor: 'white', // Universal font color.
 
   // Universal font family for texts:
   // Note that you'll need to included quoted font names as you would in CSS, ie: '"Knockout 28 B"'.
@@ -26,14 +25,24 @@ var MEME_SETTINGS = {
     {text: 'Large text', value: 36}
   ],
 
+  // Font color of main headline:
+  fontColor: '#fff',
+  // Font color options
+  fontColorOpts: [
+    {text: 'white', value: '#fff'},
+    {text: 'black', value: '#000'}
+  ],
+
   headlineText: 'Write your own headline', // Default headline text.
   height: 480, // Canvas rendering height.
   width: 880, // Canvas rendering width.
 
   aspectRatioOpts:[
     {text: 'Twitter [880x480]', value: "880x480"},
-    {text: 'Facebook [1200x672]', value: "1200x672"},
-    {text: 'Instagram [600x600]', value: "600x600"},
+    // Facebook guidelines: https://developers.facebook.com/docs/sharing/best-practices
+    {text: 'Facebook [1200x630]', value: "1200x630"},
+    // Instagram guidelines: http://blog.instagram.com/post/10444123475/v20
+    {text: 'Instagram [612x612]', value: "612x612"},
   ],
 
   imageScale: 1, // Background image scale.
@@ -68,8 +77,10 @@ var MEME_SETTINGS = {
   // NOTE: only populate the "data" attributes with base64 data when concerned about Cross-Origin requests...
   // Otherwise, just leave "data" attributes blank and allow images to load from your server.
   watermarkOpts: [
-	{text: 'LA Times wide', value: '<%= image_path("lat2.png") %>', data: ''},
-	{text: 'LA Times square', value: '<%= image_path("lat.png") %>', data: ''},
+	{text: 'LA Times wide white', value: '<%= image_path("lat2.png") %>', data: ''},
+	{text: 'LA Times square white', value: '<%= image_path("lat.png") %>', data: ''},
+  {text: 'LA Times wide black', value: '<%= image_path("lat2-black.png") %>', data: ''},
+  {text: 'LA Times square black', value: '<%= image_path("lat-black.png") %>', data: ''}
   ],
 
 
