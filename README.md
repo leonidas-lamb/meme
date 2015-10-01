@@ -4,12 +4,13 @@ Meme is a generator that Vox Media uses to create social sharing images. See wor
 
 ![screenshot](readme.png)
 
-This is the Los Angeles Times Data Desk's fork. Here is what we changed:
+This is the Los Angeles Times Data Desk's fork. Here is what we added:
 
-- Substituted in Los Angeles Times watermarks
-- Created a new set of options to change the image's aspect ratio
-- Added Los Angeles Times fonts
-- Hosted as built static files inside our newsroom VPN
+- Options to change the image's aspect ratio
+- Options to set a solid background color
+- Los Angeles Times fonts
+- Los Angeles Times watermarks
+- Deployment script to build static site inside newsroom VPN
 
 
 How to deploy (at the LA Times)
