@@ -10,16 +10,13 @@ form {
     font-size: 12px;
     line-height:12px;
     font-weight: 300;
-    margin: 0 0 2em;
+    margin: 2em 0;
     color:#888;
     text-style:italic;
     text-align:center;
     border-bottom: dashed #ddd 1px;
-    padding-bottom: 10px;
-  }
-
-  .m-editor .m-editor__overlay, .m-editor .m-editor__background-color{
-  margin-bottom:10px;
+    border-top: dashed #ddd 1px;
+    padding: 10px 0;
   }
 
   select,
