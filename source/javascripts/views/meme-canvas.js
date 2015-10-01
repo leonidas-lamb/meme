@@ -61,6 +61,18 @@ MEME.MemeCanvasView = Backbone.View.extend({
       }
     }
 
+    function renderBackgroundColor(ctx) {
+      console.log (m.background.height)
+      if (m.background.height>0) {
+        return false;
+      }
+      else if (d.backgroundColor) {
+        ctx.fillStyle = d.backgroundColor;
+        ctx.fillRect(0, 0, d.width, d.height);
+        console.log (d.backgroundColor);
+      }
+    }
+
     function renderOverlay(ctx) {
       if (d.overlayColor) {
         ctx.save();
@@ -156,6 +168,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
     }
 
     renderBackground(ctx);
+    renderBackgroundColor(ctx);
     renderOverlay(ctx);
     renderHeadline(ctx);
     renderCredit(ctx);

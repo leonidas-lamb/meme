@@ -63,6 +63,15 @@ MEME.MemeEditorView = Backbone.View.extend({
 
       $('#overlay').show().find('ul').append(overlayOpts);
     }
+
+    if (d.backgroundColorOpts && d.backgroundColorOpts.length) {
+      var backgroundColorOpts = _.reduce(d.backgroundColorOpts, function(memo, opt) {
+        var color = opt.hasOwnProperty('value') ? opt.value : opt;
+        return memo += '<li><label><input class="m-editor__swatch" style="background-color:'+color+'" type="radio" name="background-color" value="'+color+'"></label></li>';
+      }, '');
+
+      $('#background-color').show().find('ul').append(backgroundColorOpts);
+    }
   },
 
   render: function() {
@@ -78,6 +87,8 @@ MEME.MemeEditorView = Backbone.View.extend({
     this.$('#aspect-ratio').val(d.width + "x" + d.height);
     this.$('#text-shadow').prop('checked', d.textShadow);
     this.$('#overlay').find('[value="'+d.overlayColor+'"]').prop('checked', true);
+    this.$('#background-color').find('[value="'+d.backgroundColor+'"]').prop('checked', true);
+
   },
 
   events: {
@@ -92,6 +103,7 @@ MEME.MemeEditorView = Backbone.View.extend({
     'change #aspect-ratio': 'onAspectRatio',
     'change #text-shadow': 'onTextShadow',
     'change [name="overlay"]': 'onOverlayColor',
+    'change [name="background-color"]': 'onBackgroundColor',
     'dragover #dropzone': 'onZoneOver',
     'dragleave #dropzone': 'onZoneOut',
     'drop #dropzone': 'onZoneDrop'
@@ -138,6 +150,12 @@ MEME.MemeEditorView = Backbone.View.extend({
 
   onScale: function() {
     this.model.set('imageScale', this.$('#image-scale').val());
+  },
+
+   onBackgroundColor: function(evt) {
+    console.log('on background color start');
+    console.log(this.$(evt.target).val());
+    this.model.set('backgroundColor', this.$(evt.target).val());
   },
 
   onOverlayColor: function(evt) {
