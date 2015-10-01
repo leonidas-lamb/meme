@@ -8,7 +8,7 @@
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <title>Meme generator - Los Angeles Times</title>
 <link rel="stylesheet" type="text/css" href="http://d1qqc1e9kvmdh8.cloudfront.net/css/ngux-tophat-0.3.10.min.css">
-<link href="/stylesheets/main-2569b21a.css" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/main-4b9f363c.css" rel="stylesheet" type="text/css" />
 <meta name="description" content="" />
 
   </head>
@@ -21,65 +21,71 @@
     <div class="m-meme">
       <form class="m-editor" id="meme-editor-view">
 
-  <select class="aspect-ratio" id="aspect-ratio">
-      <option value="" disabled>Select aspect ratio</option>
-  </select>
+  <fieldset class="m-fieldset">
+      <h2>Size</h2>
+      <select class="aspect-ratio" id="aspect-ratio">
+          <option value="" disabled>Select aspect ratio</option>
+      </select>
+  </fieldset>
 
-  <div class="m-editor__background-color" id="background-color">
-    <h2>Select a solid background</h2>
-    <ul class="checkbox-group">
-      <li><label><input type="radio" name="background-color" value=""> None</label></li>
-    </ul>
-  </div>
+  <fieldset class="m-fieldset">
+      <h2>Background</h2>
+      <h3><label for="background-color">Use a solid color ...</label></h3>
+      <div class="m-editor__background-color" id="background-color">
+        <ul class="checkbox-group">
+          <li><label><input type="radio" name="background-color" value=""> None</label></li>
+        </ul>
+      </div>
 
-  <h2 class="note">Use either an image or a background color</h2>
+      <h3><label for="dropzone">... or add an image background</label></h3>
+      <div class="dropzone" id="dropzone">Drop image from your desktop here.</div>
 
-  <div class="dropzone" id="dropzone">Drop image from your desktop here.</div>
-  
-  <h2><label for="image-scale">Resize image</label></h2>
-  <input id="image-scale" type="range" max="4" min=".01" step=".01" value="1">
+      <h3><label for="image-scale">Resize the image</label></h3>
+      <input id="image-scale" type="range" max="4" min=".01" step=".01" value="1">
 
-  <div class="m-editor__overlay" id="overlay">
-    <h2>Overlay Color</h2>
-    <ul class="checkbox-group">
-      <li><label><input type="radio" name="overlay" value=""> None</label></li>
-    </ul>
-  </div>
+      <div class="m-editor__overlay" id="overlay">
+        <h3><label for="overlay">Add an overlay</label></h3>
+        <ul class="checkbox-group">
+          <li><label><input type="radio" name="overlay" value=""> None</label></li>
+        </ul>
+      </div>
+      <div style="clear:both; height:1em;"></div>
+  </fieldset>
 
-  <h2 class="note">Text options</h2>
-  
-  <h2><label for="headline">Headline</label></h2>
-  <textarea id="headline" name="headline" type="text" value=""></textarea>
+  <fieldset class="m-fieldset">
+    <h2>Text</h2>
 
-  <select class="text-align" id="text-align">
-    <option value="" disabled>Select alignment</option>
-  </select>
+    <textarea id="headline" name="headline" type="text" value=""></textarea>
 
-  <select class="font-size" id="font-size">
+    <select class="text-align" id="text-align">
+        <option value="" disabled>Select alignment</option>
+    </select>
+
+    <select class="font-size" id="font-size">
     <option value="" disabled>Select a font size</option>
-  </select>
+    </select>
 
-  <select class="font-family" id="font-family">
+    <select class="font-family" id="font-family">
     <option value="" disabled>Select a font</option>
-  </select>
+    </select>
 
-  <select class="font-color" id="font-color">
+    <select class="font-color" id="font-color">
     <option value="" disabled>Select a font color</option>
-  </select>
+    </select>
 
-  <div class="checkbox-group text-shadow">
-    <input id="text-shadow" name="shadow" type="checkbox"> 
+    <div class="checkbox-group text-shadow">
+    <input id="text-shadow" name="shadow" type="checkbox">
     <label for="text-shadow">Text Shadow</label>
-  </div>
+    </div>
 
-  <select class="watermark" id="watermark">
-    <option value="watermark">Select a watermark</option>
-  </select>
+    <select class="watermark" id="watermark">
+    <option value="watermark" disabled>Select a watermark</option>
+    </select>
 
-  <h2><label for="credit">Credit</label></h2>
-  <input id="credit" name="credit" type="text" value="">
+    <h2><label for="credit">Credit</label></h2>
+    <input id="credit" name="credit" type="text" value="">
+  </fieldset>
 
-  
 </form>
 
       <div class="m-canvas" id="meme-canvas-view">
@@ -93,6 +99,6 @@
 
     </div>
     <script src="/javascripts/application-0b091ba3.js" type="text/javascript"></script>
-    <script src="/javascripts/settings-46a702eb.js" type="text/javascript"></script>
+    <script src="/javascripts/settings-472e0045.js" type="text/javascript"></script>
   </body>
 </html>
