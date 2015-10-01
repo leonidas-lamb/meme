@@ -1,16 +1,31 @@
 form {
+  fieldset.m-fieldset {
+      margin: 1em 0 1em 0;
+      border-bottom: dashed #ddd 1px;
+      display: block;
+      clear: both;
+  }
+
+  fieldset.m-fieldset:first-of-type {
+      margin-top: 0;
+  }
+
   h2 {
-    font-size: 15px;
+    font-size: 17px;
     line-height:18px;
     font-weight: 600;
-    margin: .5em 0 0.35em;
+    margin: 1.5em 0 0.35em;
+  }
+
+  h2:first-of-type {
+      margin-top: 0;
   }
 
   h2.note{
     font-size: 12px;
     line-height:12px;
     font-weight: 300;
-    margin: 2em 0;
+    margin:0.5em 0;
     color:#888;
     text-style:italic;
     text-align:center;
@@ -19,12 +34,23 @@ form {
     padding: 10px 0;
   }
 
+  h3 {
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      line-height: 18px;
+      margin: 1.75em 0 0.5em 0;
+  }
+
+  fieldset.m-fieldset h3:first-of-type {
+      margin-top: 0;
+  }
+
   select,
   textarea,
   input[type="text"],
   input[type="range"],
   .checkbox-group {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     width: 100%;
   }
 
