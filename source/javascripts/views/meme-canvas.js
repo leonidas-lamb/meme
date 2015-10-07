@@ -107,32 +107,54 @@ MEME.MemeCanvasView = Backbone.View.extend({
         x = d.width / 2;
         y = d.height - d.height / 1.75;
         maxWidth = d.width - d.width / 3;
-
       } else if (d.textAlign == 'right' ) {
         ctx.textAlign = 'right';
         x = d.width - padding;
-
       } else {
         ctx.textAlign = 'left';
       }
 
+      var lineheight = 1.5;
       var words = d.headlineText.split(' ');
-      var line  = '';
 
+      /* Allow linebreaks by catching newlines and sticking them back in list */
+      var linebreak = /\r|\n/;
+      var wordsAndBreaks = [];
       for (var n = 0; n < words.length; n++) {
-        var testLine  = line + words[n] + ' ';
-        var metrics   = ctx.measureText( testLine );
-        var testWidth = metrics.width;
-
-        if (testWidth > maxWidth && n > 0) {
-          ctx.fillText(line, x, y);
-          line = words[n] + ' ';
-          y += Math.round(d.fontSize * 1.5);
+        var bit = words[n];
+        if (linebreak.exec(bit)) {
+            var split = bit.split(linebreak);
+            this.$.each(split, function(i, e) {
+                wordsAndBreaks.push(e);
+                if (i+1 != split.length) {
+                    wordsAndBreaks.push("\n");
+                }
+            })
         } else {
-          line = testLine;
+            wordsAndBreaks.push(bit);
+        }
+      };
+
+      var line  = '';
+      for (var n = 0; n < wordsAndBreaks.length; n++) {
+        var bit = wordsAndBreaks[n];
+        if (bit == "\n") {
+            ctx.fillText(line, x, y);
+            line = '';
+            y += Math.round(d.fontSize * lineheight);
+        } else {
+            var testLine  = line + bit + ' ';
+            var metrics   = ctx.measureText( testLine );
+            var testWidth = metrics.width;
+            if (testWidth > maxWidth && n > 0) {
+              ctx.fillText(line, x, y);
+              line = words[n] + ' ';
+              y += Math.round(d.fontSize * lineheight);
+            } else {
+              line = testLine;
+            }
         }
       }
-
       ctx.fillText(line, x, y);
       ctx.shadowColor = 'transparent';
     }
