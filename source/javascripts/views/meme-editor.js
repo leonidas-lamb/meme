@@ -153,8 +153,6 @@ MEME.MemeEditorView = Backbone.View.extend({
   },
 
    onBackgroundColor: function(evt) {
-    console.log('on background color start');
-    console.log(this.$(evt.target).val());
     this.model.set('backgroundColor', this.$(evt.target).val());
   },
 

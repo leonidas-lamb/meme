@@ -62,14 +62,14 @@ MEME.MemeCanvasView = Backbone.View.extend({
     }
 
     function renderBackgroundColor(ctx) {
-      console.log (m.background.height)
+      /* If a background image is set, we want to quit out right away */
       if (m.background.height>0) {
         return false;
       }
+      /* Otherwise set the fill color */
       else if (d.backgroundColor) {
         ctx.fillStyle = d.backgroundColor;
         ctx.fillRect(0, 0, d.width, d.height);
-        console.log (d.backgroundColor);
       }
     }
 
