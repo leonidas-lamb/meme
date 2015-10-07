@@ -2,16 +2,16 @@
 
 Meme is a generator that Vox Media uses to create social sharing images. See working version at [http://www.sbnation.com/a/meme](http://www.sbnation.com/a/meme).
 
-![screenshot](readme.png)
-
 This is the Los Angeles Times Data Desk's fork. Here is what we added:
 
 - Options to change the image's aspect ratio
 - Options to set a solid background color
 - Los Angeles Times fonts
 - Los Angeles Times watermarks
+- Linebreaks allowed in the headlines
 - Deployment script to build static site inside newsroom VPN
 
+![screenshot](readme.png)
 
 How to deploy (at the LA Times)
 -------------------------------
