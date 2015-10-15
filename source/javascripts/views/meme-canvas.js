@@ -120,41 +120,44 @@ MEME.MemeCanvasView = Backbone.View.extend({
       /* Allow linebreaks by catching newlines and sticking them back in list */
       var linebreak = /\r|\n/;
       var wordsAndBreaks = [];
-      for (var n = 0; n < words.length; n++) {
-        var bit = words[n];
-        if (linebreak.exec(bit)) {
-            var split = bit.split(linebreak);
-            this.$.each(split, function(i, e) {
-                wordsAndBreaks.push(e);
-                if (i+1 != split.length) {
-                    wordsAndBreaks.push("\n");
-                }
-            })
-        } else {
-            wordsAndBreaks.push(bit);
-        }
-      };
+      _.each(words, function(bit) {
+            if (linebreak.exec(bit)) {
+                var split = bit.split(linebreak);
+                _.each(split, function(element, index) {
+                    wordsAndBreaks.push(element);
+                    if (index % 2 == 0) {
+                        wordsAndBreaks.push("\n");
+                    }
+                })
+            } else {
+                wordsAndBreaks.push(bit);
+            }
+      });
+
+      /* Clear out any empty strings that have snuck in */
+      var wordsAndBreaks = _.filter(
+          wordsAndBreaks, function(e){ return e != "" }
+      );
 
       var line  = '';
-      for (var n = 0; n < wordsAndBreaks.length; n++) {
-        var bit = wordsAndBreaks[n];
-        if (bit == "\n") {
-            ctx.fillText(line, x, y);
-            line = '';
-            y += Math.round(d.fontSize * lineheight);
-        } else {
-            var testLine  = line + bit + ' ';
-            var metrics   = ctx.measureText( testLine );
-            var testWidth = metrics.width;
-            if (testWidth > maxWidth && n > 0) {
-              ctx.fillText(line, x, y);
-              line = words[n] + ' ';
-              y += Math.round(d.fontSize * lineheight);
+      _.each(wordsAndBreaks, function(bit, index) {
+            if (bit == "\n") {
+                ctx.fillText(line, x, y);
+                line = '';
+                y += Math.round(d.fontSize * lineheight);
             } else {
-              line = testLine;
+                var testLine  = line + bit + ' ';
+                var metrics   = ctx.measureText(testLine);
+                var testWidth = metrics.width;
+                if (testWidth > maxWidth && index > 0) {
+                  ctx.fillText(line, x, y);
+                  line = bit + ' ';
+                  y += Math.round(d.fontSize * lineheight);
+                } else {
+                  line = testLine;
+                }
             }
-        }
-      }
+      });
       ctx.fillText(line, x, y);
       ctx.shadowColor = 'transparent';
     }
