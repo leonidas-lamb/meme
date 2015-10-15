@@ -117,6 +117,11 @@ MEME.MemeCanvasView = Backbone.View.extend({
       var lineheight = 1.5;
       var words = d.headlineText.split(' ');
 
+      /* Clear out any empty strings that have snuck in */
+      var words = _.filter(
+          words, function(e){ return e != "" }
+      );
+
       /* Allow linebreaks by catching newlines and sticking them back in list */
       var linebreak = /\r|\n/;
       var wordsAndBreaks = [];
@@ -125,7 +130,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
                 var split = bit.split(linebreak);
                 _.each(split, function(element, index) {
                     wordsAndBreaks.push(element);
-                    if (index % 2 == 0) {
+                    if (index+1 != split.length) {
                         wordsAndBreaks.push("\n");
                     }
                 })
