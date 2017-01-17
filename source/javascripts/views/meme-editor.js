@@ -16,7 +16,10 @@ MEME.MemeEditorView = Backbone.View.extend({
 
     function buildOptions(opts) {
       return _.reduce(opts, function(memo, opt) {
-        return memo += ['<option value="', opt.hasOwnProperty('value') ? opt.value : opt, '">', opt.hasOwnProperty('text') ? opt.text : opt, '</option>'].join('');
+        return memo += [
+            '<option value="', opt.hasOwnProperty('value') ? opt.value : opt, '">',
+            opt.hasOwnProperty('text') ? opt.text : opt, '</option>'
+        ].join('');
       }, '');
     }
 
@@ -125,7 +128,7 @@ MEME.MemeEditorView = Backbone.View.extend({
     this.model.set({
       'width': parseInt(this.$('#aspect-ratio').val().split("x")[0]),
       'height': parseInt(this.$('#aspect-ratio').val().split("x")[1])
-      });
+    });
   },
 
   onTextShadow: function() {
