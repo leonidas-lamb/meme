@@ -16,4 +16,8 @@
              url('https://s3.amazonaws.com/latimes-datadesk-template/fonts/0.5.0/benton-gothic-bold.ttf') format('truetype');
         font-weight:normal;
         font-style:normal;
-    }
+}
+
+form select, form .checkbox-group label, form textarea, form input[type="text"]{
+	font-family: 'Benton Gothic Regular';
+}
